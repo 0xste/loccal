@@ -1,0 +1,79 @@
+/* Loccal Main Styles */
+body {
+    background: radial-gradient(circle at top left, #fff3e6 0%, #fef9f5 100%);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .pattern-bg {
+    background-image: url('assets/house.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 180px;
+    opacity: 0.05;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  /* Colors */
+  .loccal-orange {
+    color: #ec7837;
+  }
+  
+  .bg-loccal-orange {
+    background-color: #ec7837;
+  }
+  
+  .hover-bg-loccal-orange:hover {
+    background-color: #db6e30;
+  }
+  
+  .loccal-cream {
+    background-color: #fff7f1;
+  }
+  
+  .border-loccal-cream {
+    border-color: #f1e7da;
+  }
+  
+  /* Typography */
+  .logo-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+  
+  .tagline {
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  /* Forms */
+  .form-input {
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: #ec7837;
+    box-shadow: 0 0 0 3px rgba(236, 120, 55, 0.2);
+    outline: none;
+  }
+  
+  /* Cards and Animations */
+  .step-card, .team-card {
+    transition: all 0.3s ease;
+  }
+  
+  .step-card:hover, .team-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    opacity: 0.1;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+  }

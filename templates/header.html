@@ -1,0 +1,63 @@
+<!-- Header -->
+<header class="container mx-auto px-4 py-6 flex justify-between items-center">
+    <div class="flex items-center">
+      <div class="mr-2">
+        <svg class="w-8 h-8 loccal-orange" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 2H5c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h4l3 3 3-3h4c1.11 0 2-.89 2-2V4c0-1.11-.89-2-2-2zm0 16h-4.83l-.59.59L12 20.17l-1.59-1.59-.58-.58H5V4h14v14zm-7-1l1.88-4.12L18 11l-4.12-1.88L12 5l-1.88 4.12L6 11l4.12 1.88z" />
+        </svg>
+      </div>
+      <a href="index.html">
+        <div class="loccal-orange logo-text">Loccal.</div>
+        <div class="tagline text-gray-700">REAL PERKS • REAL CLOSE</div>
+      </a>
+    </div>
+    <div class="hidden md:flex space-x-4">
+      <a href="how-it-works.html" class="px-4 py-2 text-sm font-medium rounded-lg border border-transparent hover:bg-white/30 transition-colors" id="nav-how-it-works">How It Works</a>
+      <a href="about-us.html" class="px-4 py-2 text-sm font-medium rounded-lg border border-transparent hover:bg-white/30 transition-colors" id="nav-about-us">About Us</a>
+      <a href="for-business.html" class="px-4 py-2 text-sm font-medium rounded-lg border border-transparent hover:bg-white/30 transition-colors">For Business</a>
+      <a href="for-employers.html" class="px-4 py-2 text-sm font-medium rounded-lg border border-transparent hover:bg-white/30 transition-colors">For Employers</a>
+  </div>
+    <button class="md:hidden text-gray-700" id="mobile-menu-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </header>
+  
+  <!-- Mobile menu (hidden by default) -->
+  <div class="md:hidden hidden bg-white absolute z-20 left-0 right-0 top-20 p-4 shadow-lg rounded-b-lg" id="mobile-menu">
+    <div class="flex flex-col space-y-2">
+      <a href="how-it-works.html" class="px-4 py-3 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">How It Works</a>
+      <a href="about-us.html" class="px-4 py-3 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">About Us</a>
+      <a href="for-business.html" class="px-4 py-3 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">For Business</a>
+      <a href="for-employers.html" class="px-4 py-3 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">For Employers</a>
+    </div>
+  </div>
+  
+  <script>
+    // Set active nav item based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+      const path = window.location.pathname;
+      const page = path.split("/").pop();
+      
+      if (page === "how-it-works.html") {
+        document.getElementById("nav-how-it-works").classList.add("bg-white/30");
+      } else if (page === "about-us.html") {
+        document.getElementById("nav-about-us").classList.add("bg-white/30");
+      } else if (page === "for-business.html") {
+        document.getElementById("nav-for-business").classList.add("bg-white/30");
+      } else if (page === "for-employers.html") {
+        document.getElementById("nav-for-employers").classList.add("bg-white/30");
+      } else if (page === "contact.html") {
+        document.getElementById("nav-contact").classList.add("bg-white/30");
+      }
+      
+      // Toggle mobile menu
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>

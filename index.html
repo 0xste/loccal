@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loccal – Real Perks. Real Close.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/common.js"></script>
+  </head>
+  <body class="text-[#1f1f1f] relative overflow-x-hidden min-h-screen">
+    <div class="pattern-bg"></div>
+
+    <!-- Header container -->
+    <div id="header-container"></div>
+
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 flex flex-col items-center">
+      <div class="w-full max-w-3xl">
+        <!-- Sign up form -->
+        <section class="loccal-cream p-8 md:p-16 rounded-3xl shadow-xl border border-loccal-cream text-center mb-12">
+          <div class="flex justify-center mb-8">
+            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#fae1d5] mb-4">
+              <svg class="w-8 h-8 loccal-orange" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                <circle cx="12" cy="10" r="3" fill="white"></circle>
+              </svg>
+            </span>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-bold loccal-orange mb-4">Join the Movement</h2>
+          <p class="text-gray-600 mb-8 max-w-xl mx-auto">Connect with local businesses, unlock exclusive perks, and support your community all in one place.</p>
+          
+          <form action="https://formspree.io/f/myzwyrdk" method="POST" class="max-w-2xl mx-auto space-y-8 text-left">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700">Email address</label>
+              <input type="email" name="email" required class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" placeholder="you@example.com" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-gray-700">I am a...</label>
+              <select name="user_type" id="userType" required onchange="updateFormFields()" class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input">
+                <option value="">-- Select --</option>
+                <option value="employee">Employee</option>
+                <option value="employer">Employer</option>
+                <option value="local_business">Local Business</option>
+              </select>
+            </div>
+
+            <div id="conditional-fields" class="transition-all duration-300"></div>
+
+            <div>
+              <label class="block text-sm font-semibold text-gray-700">Your Location</label>
+              <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center mt-2">
+                <input id="locationField" name="location" type="text" class="p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" placeholder="City, postcode or area" />
+                <button id="locationBtn" type="button" onclick="getLocation()" class="text-sm px-4 py-4 md:py-2 bg-loccal-orange text-white rounded-xl hover-bg-loccal-orange transition-all w-full md:w-auto whitespace-nowrap">
+                  <i class="fas fa-location-dot mr-2"></i> Use My Location
+                </button>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">Loccal is currently only available in the North East of the UK.</p>
+            </div>
+
+            <button type="submit" class="bg-loccal-orange text-white px-8 py-4 rounded-xl font-semibold text-lg hover-bg-loccal-orange w-full transition-all duration-300 shadow-md hover:shadow-xl">
+              <i class="fas fa-arrow-right-to-bracket mr-2"></i> Register Interest
+            </button>
+            
+            <p class="text-xs text-gray-500 text-center mt-4">
+              By joining our waiting list, you consent to our <a href="terms-and-conditions.html" class="underline">privacy policy</a> and cookie use for location-based features.
+            </p>
+          </form>
+        </section>
+        
+        <!-- Features section -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+            <div class="flex justify-center mb-4">
+              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#fae1d5]">
+                <svg class="h-6 w-6 loccal-orange" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M21.9 8.89l-1.05-4.37c-.22-.9-1-1.52-1.91-1.52H5.05c-.9 0-1.69.63-1.9 1.52L2.1 8.89c-.24 1.02-.02 2.06.62 2.88.08.11.19.19.28.29V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6.94c.09-.09.2-.18.28-.28.64-.82.87-1.87.62-2.89zm-2.99-3.9l1.05 4.37c.1.42.01.84-.25 1.17-.14.18-.44.47-.94.47-.61 0-1.14-.49-1.21-1.14L16.98 5l1.93-.01zM13 5h1.96l.54 4.52c.05.39-.07.78-.33 1.07-.22.26-.54.41-.95.41-.67 0-1.22-.59-1.22-1.31V5zM8.49 9.52L9.04 5H11v4.69c0 .72-.55 1.31-1.29 1.31-.34 0-.65-.15-.89-.41-.25-.29-.37-.68-.33-1.07zm-4.45-.16L5.05 5h1.97l-.58 4.86c-.08.65-.6 1.14-1.21 1.14-.49 0-.8-.29-.93-.47-.27-.32-.36-.75-.26-1.17zM5 19v-6.03c.08-.02.16-.03.23-.06.15-.05.3-.12.44-.2.81-.42 1.31-1.25 1.38-2.18l.5-4.24H20v12.51H5z"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Local Businesses</h3>
+            <p class="text-gray-600 text-sm">Connect with nearby companies and offer exclusive perks that bring in foot traffic.</p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+            <div class="flex justify-center mb-4">
+              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#fae1d5]">
+                <svg class="h-6 w-6 loccal-orange" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Employers</h3>
+            <p class="text-gray-600 text-sm">Enhance employee benefits with unique local perks that boost engagement and retention.</p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+            <div class="flex justify-center mb-4">
+              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#fae1d5]">
+                <svg class="h-6 w-6 loccal-orange" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Employees</h3>
+            <p class="text-gray-600 text-sm">Discover and enjoy exclusive perks from local businesses right in your neighborhood.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+      
+    <script>
+      function updateFormFields() {
+        const userType = document.getElementById('userType').value;
+        const formFields = document.getElementById('conditional-fields');
+
+        formFields.innerHTML = '';
+
+        if (userType === 'employee') {
+          formFields.innerHTML = `
+            <div class="transition-all duration-300 ease-in-out">
+              <label class="block text-sm font-semibold text-gray-700">What kind of perks are most valuable to you?</label>
+              <select id="employeeSelect" name="employee_interests" multiple class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" onchange="toggleOtherInput(this, 'employee')">
+                <option value="food">Food & Dining</option>
+                <option value="drinks">Coffee & Drinks</option>
+                <option value="wellness">Health & Wellness</option>
+                <option value="experiences">Local Events & Experiences</option>
+                <option value="shopping">Shopping</option>
+                <option value="other">Other</option>
+              </select>
+              <input id="employee_other" name="employee_other" placeholder="Please specify" class="mt-2 hidden p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" />
+
+              <label class="block mt-6 text-sm font-semibold text-gray-700">What would make this platform meaningful for you?</label>
+              <textarea name="employee_reason" class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" placeholder="Tell us more about what you're looking for..."></textarea>
+            </div>
+          `;
+        } else if (userType === 'employer') {
+          formFields.innerHTML = `
+            <div class="transition-all duration-300 ease-in-out">
+              <label class="block text-sm font-semibold text-gray-700">What kind of perks would you like to offer?</label>
+              <select id="employerSelect" name="employer_offers" multiple class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" onchange="toggleOtherInput(this, 'employer')">
+                <option value="food">Food & Dining</option>
+                <option value="drinks">Coffee & Drinks</option>
+                <option value="wellness">Wellbeing & Fitness</option>
+                <option value="experiences">Local Experiences</option>
+                <option value="volunteering">Volunteering Opportunities</option>
+                <option value="other">Other</option>
+              </select>
+              <input id="employer_other" name="employer_other" placeholder="Please specify" class="mt-2 hidden p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" />
+
+              <label class="block mt-6 text-sm font-semibold text-gray-700">What's your main goal for using Loccal?</label>
+              <textarea name="employer_goals" class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" placeholder="E.g. employee engagement, brand impact, community support..."></textarea>
+            </div>
+          `;
+        } else if (userType === 'local_business') {
+          formFields.innerHTML = `
+            <div class="transition-all duration-300 ease-in-out">
+              <label class="block text-sm font-semibold text-gray-700">What kind of exposure or benefits would help your business most?</label>
+              <textarea name="business_expectations" rows="4" class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input" placeholder="Tell us how we can help your business grow through Loccal..."></textarea>
+              
+              <label class="block mt-6 text-sm font-semibold text-gray-700">Would you be open to offering deals, hosting events, or partnering on community efforts?</label>
+              <textarea name="business_participation" rows="3" class="mt-2 p-4 block w-full border border-gray-300 rounded-xl shadow-sm form-input"></textarea>
+            </div>
+          `;
+        }
+        
+        // Add animation
+        if (formFields.innerHTML !== '') {
+          setTimeout(() => {
+            const newFields = formFields.querySelector('div');
+            newFields.classList.add('opacity-100');
+          }, 10);
+        }
+      }
+
+      function toggleOtherInput(selectElement, userType) {
+        const selectedOptions = Array.from(selectElement.selectedOptions).map(o => o.value);
+        const otherInput = document.getElementById(`${userType}_other`);
+        if (selectedOptions.includes('other')) {
+          otherInput.classList.remove('hidden');
+        } else {
+          otherInput.classList.add('hidden');
+        }
+      }
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          const locationBtn = document.getElementById('locationBtn');
+          locationBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Getting location...';
+          
+          navigator.geolocation.getCurrentPosition((position) => {
+            document.getElementById('locationField').value = `${position.coords.latitude}, ${position.coords.longitude}`;
+            locationBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Location acquired';
+            locationBtn.classList.remove('bg-loccal-orange');
+            locationBtn.classList.add('bg-green-500');
+            
+            setTimeout(() => {
+              locationBtn.innerHTML = '<i class="fas fa-location-dot mr-2"></i> Use My Location';
+              locationBtn.classList.remove('bg-green-500');
+              locationBtn.classList.add('bg-loccal-orange');
+            }, 3000);
+            
+          }, (error) => {
+            locationBtn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Location failed';
+            locationBtn.classList.remove('bg-loccal-orange');
+            locationBtn.classList.add('bg-red-500');
+            
+            setTimeout(() => {
+              locationBtn.innerHTML = '<i class="fas fa-location-dot mr-2"></i> Use My Location';
+              locationBtn.classList.remove('bg-red-500');
+              locationBtn.classList.add('bg-loccal-orange');
+            }, 3000);
+            
+            alert("Unable to retrieve location. Please type your city or postcode manually.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+    </script>
+  </body>
+</html>
