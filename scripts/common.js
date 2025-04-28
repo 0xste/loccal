@@ -1,3 +1,8 @@
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7CCVKFHQLS');
+
 document.addEventListener('DOMContentLoaded', function() {
     // Load header
     fetch('templates/header.html')
